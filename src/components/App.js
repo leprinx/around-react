@@ -2,11 +2,9 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import vector from "../images/header/Vector.svg";
-import deleteButton from "../images/places/delete-button.svg";
-import { useEffect, useState } from "react";
-import { ReactFragment } from "react";
+import { useEffect, useState, useCallback } from "react";
 import PopupWithForm from "./PopupWithForm";
-import ImageWithPopup from "./ImagePopup";
+import ImagePopup from "./ImagePopup";
 
 function App() {
   const [isEditProfilePopupOpen, setEditProfileOpen] = useState(false);
@@ -17,12 +15,15 @@ function App() {
 
   function handleEditAvatarClick() {
     setEditAvatarOpen(true);
+    addEscapeListener()
   }
   function handleEditProfileClick() {
     setEditProfileOpen(true);
+    addEscapeListener()
   }
   function handleAddPlaceClick() {
     setAddPlaceOpen(true);
+    addEscapeListener()
   }
   function closeAllPopups() {
     setAddPlaceOpen(false);
@@ -33,13 +34,15 @@ function App() {
     document.removeEventListener("keyup", handleEscClose);
   }
 
-  function handleEscClose(evt) {
-    if (evt.key === "Escape") {
-      closeAllPopups();
-    }
-  }
+  const handleEscClose = useCallback((evt) => {  
+    if (evt.key === "Escape") { 
+      closeAllPopups(); 
+    } 
+}, [])
 
+function addEscapeListener() {
   document.addEventListener("keyup", handleEscClose);
+}
 
   function handleCloseByClick(e) {
     if (
@@ -52,6 +55,7 @@ function App() {
   function handleCardClick(card){
     setSelectedCard(card);
     setIsImagePopuOpen(true);
+    addEscapeListener()
   }
 
 

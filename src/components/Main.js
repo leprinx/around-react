@@ -1,4 +1,4 @@
-import profileMod from "../images/profile/modifier.png";
+import editImage from "../images/profile/modifier.png";
 import addElement from "../images/add-element/add-element.svg";
 import api from "../utils/api";
 import { useEffect, useState } from "react";
@@ -16,17 +16,27 @@ function Main({
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    api.getUserData().then((res) => {
-      setUserName(res.name);
-      setUserDescription(res.about);
-      setUserAvatar(res.avatar);
-    });
+    api
+      .getUserData()
+      .then((res) => {
+        setUserName(res.name);
+        setUserDescription(res.about);
+        setUserAvatar(res.avatar);
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      });
   }, []);
 
   useEffect(() => {
-    api.getCards().then((res) => {
-      setCards(res);
-    });
+    api
+      .getCards()
+      .then((res) => {
+        setCards(res);
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      });
   }, []);
 
   return (
@@ -55,7 +65,7 @@ function Main({
                   onClick={onEditProfileClick}
                 >
                   <img
-                    src={profileMod}
+                    src={editImage}
                     alt="pen"
                     className="profile__modifier"
                   />

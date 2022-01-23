@@ -25,7 +25,7 @@ function PopupWithForm(props) {
                 type="submit"
                 disabled
               >
-                {props.buttonText};
+                {props.buttonText}
               </button>
             </form>
             <button className="reset-button" type="reset">

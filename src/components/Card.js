@@ -20,7 +20,7 @@ function Card({ card, onCardClick }) {
             <button
               className="reset-button places__element-like"
               type="button"
-            ></button>
+            />
             <p className="places__show-likes">{card.likes.length}</p>
           </div>
         </div>
