@@ -1,7 +1,7 @@
 import { ReactFragment } from "react";
 import button from "../images/button/Close-Icon.svg";
 
-function ImageWithPopup({isOpen, onClick, onClose, card}) {
+function ImagePopup({isOpen, onClick, onClose, card}) {
   console.log(card);
   if (card != null){
     return (
@@ -24,4 +24,4 @@ function ImageWithPopup({isOpen, onClick, onClose, card}) {
   } return null;
 }
 
-export default ImageWithPopup;
+export default ImagePopup;

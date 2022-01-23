@@ -151,7 +151,7 @@ function App() {
           />
           <span className="form__input-error" id="new-pic-link-error"></span>
         </PopupWithForm>
-        <ImageWithPopup isOpen={isImagePopupOpen} onClick={handleCloseByClick} onClose={closeAllPopups} card={selectedCard}/>
+        <ImagePopup isOpen={isImagePopupOpen} onClick={handleCloseByClick} onClose={closeAllPopups} card={selectedCard}/>
         <Footer />
       </div>
     </>
