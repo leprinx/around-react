@@ -1,13 +1,18 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("./vendor/normalize/normalize.css");
+@import url("./vendor/fonts/fonts.css");
+@import url("./blocks/page/page.css");
+@import url("./blocks/container/container.css");
+@import url("./blocks/add/add.css");
+@import url("./blocks/reset-button/reset-button.css");
+@import url("./blocks/header/header.css");
+@import url("./blocks/profile/profile.css");
+@import url("./blocks/add-element/add-element.css");
+@import url("./blocks/places/places.css");
+@import url("./blocks/footer/footer.css");
+@import url("./blocks/cover/cover.css");
+@import url("./blocks/cover/_open/cover_open.css");
+@import url("./blocks/button/button.css");
+@import url("./blocks/form/form.css");
+@import url("./blocks/changePic/changePic.css");
+@import url("./blocks/delete-card/delete-card.css");
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
