@@ -1,5 +1,5 @@
 import PopupWithForm from "./PopupWithForm";
-import CurrentUserContext from "../context/CurrentUserContext";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 import { useRef } from "react";
 
 

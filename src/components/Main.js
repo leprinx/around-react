@@ -3,7 +3,7 @@ import addElement from "../images/add-element/add-element.svg";
 import api from "../utils/api";
 import { useEffect, useState, useContext } from "react";
 import Card from "./Card";
-import CurrentUserContext from "../context/CurrentUserContext";
+import CurrentUserContext from "../contexts/CurrentUserContext";
 
 function Main({
   onEditProfileClick,
