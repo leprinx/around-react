@@ -21,9 +21,8 @@ function PopupWithForm(props) {
             >
               {props.children}
               <button
-                className="reset-button form__save-button form__save-button_disabled"
+                className="reset-button form__save-button"
                 type="submit"
-                disabled
               >
                 {props.buttonText}
               </button>
