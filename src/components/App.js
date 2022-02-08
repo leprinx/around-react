@@ -65,9 +65,14 @@ function App() {
   //LIFTING STATE UP
 
   function handleCardDelete(card) {
-    api.removeCard(card._id).then(() => {
-      setCurrentCards(currentCards.filter((c) => c._id !== card._id));
-    });
+    api
+      .removeCard(card._id)
+      .then(() => {
+        setCurrentCards(currentCards.filter((c) => c._id !== card._id));
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      });
   }
 
   function handleCardLike(card) {
@@ -154,49 +159,47 @@ function App() {
   }
 
   return (
-    <>
-      <CurrentUserContext.Provider value={currentUser}>
-        <div className="page">
-          <Header
-            containerClass="header container"
-            vector={vector}
-            logoClass="header__logo"
-          />
-          <Main
-            onEditProfileClick={handleEditProfileClick}
-            onAddPlaceClick={handleAddPlaceClick}
-            onEditAvatarClick={handleEditAvatarClick}
-            onCardClick={handleCardClick}
-            cards={currentCards}
-            onCardLike={handleCardLike}
-            onCardClick={handleCardClick}
-            onCardDelete={handleCardDelete}
-          />
-          <EditProfilePopup
-            isOpen={isEditProfilePopupOpen}
-            onClose={closeAllPopups}
-            onUpdateUser={handleUpdateUser}
-          />
-          <EditAvatarPopup
-            isOpen={isEditAvatarPopupOpen}
-            onClose={closeAllPopups}
-            onUpdateAvatar={handleUpdateAvatar}
-          />
-          <ImagePopup
-            isOpen={isImagePopupOpen}
-            onClick={handleCloseByClick}
-            onClose={closeAllPopups}
-            card={selectedCard}
-          />
-          <AddPlacePopup
-            isOpen={isAddPlacePopupOpen}
-            onClose={closeAllPopups}
-            onAddPlace={handleAddCard}
-          />
-          <Footer />
-        </div>
-      </CurrentUserContext.Provider>
-    </>
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        <Header
+          containerClass="header container"
+          vector={vector}
+          logoClass="header__logo"
+        />
+        <Main
+          onEditProfileClick={handleEditProfileClick}
+          onAddPlaceClick={handleAddPlaceClick}
+          onEditAvatarClick={handleEditAvatarClick}
+          onCardClick={handleCardClick}
+          cards={currentCards}
+          onCardLike={handleCardLike}
+          onCardClick={handleCardClick}
+          onCardDelete={handleCardDelete}
+        />
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
+        />
+        <EditAvatarPopup
+          isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
+        />
+        <ImagePopup
+          isOpen={isImagePopupOpen}
+          onClick={handleCloseByClick}
+          onClose={closeAllPopups}
+          card={selectedCard}
+        />
+        <AddPlacePopup
+          isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups}
+          onAddPlace={handleAddCard}
+        />
+        <Footer />
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 

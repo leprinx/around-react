@@ -7,8 +7,6 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   const linkRef = useRef("");
   const nameRef= useRef("");
  
-
-
   function handleSubmit(e) {
     e.preventDefault();
     onAddPlace({name:nameRef.current.value, link:linkRef.current.value});
